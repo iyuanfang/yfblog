@@ -16,23 +16,28 @@
   <meta name="author" content="元芳">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前面一直用公众号写文章，但发现">
+    <meta name="description" content="前面一直用公众号写文章，但发现比较散，不利于自己做知识管理。所以想搞个免费博客，私域，技术，经济都可以写。后面再用 gitbook 搞个在线书。 就选了比较流行的 hexo，然后免费部署到 github pages 上。很快就搭起来了，可以通过 元芳的博客访问。 这里主要讲原理和相关命令。如 git，node 的安装和使用可以自行搜索。 HexoHexo 原理是通过 node 将 Markdown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo和github做个人博客">
+<meta property="og:title" content="Hexo 和 Github 做个人博客">
 <meta property="og:url" content="http://iyuanfang.github.io/2024/07/12/hexo%E5%92%8Cgithub%E5%81%9A%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-1/index.html">
 <meta property="og:site_name" content="元芳的文章">
-<meta property="og:description" content="前面一直用公众号写文章，但发现">
+<meta property="og:description" content="前面一直用公众号写文章，但发现比较散，不利于自己做知识管理。所以想搞个免费博客，私域，技术，经济都可以写。后面再用 gitbook 搞个在线书。 就选了比较流行的 hexo，然后免费部署到 github pages 上。很快就搭起来了，可以通过 元芳的博客访问。 这里主要讲原理和相关命令。如 git，node 的安装和使用可以自行搜索。 HexoHexo 原理是通过 node 将 Markdown">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://iyuanfang.github.io/%5Cimages%5Cpasted-2.png">
-<meta property="article:published_time" content="2024-07-12T02:07:48.000Z">
-<meta property="article:modified_time" content="2024-07-12T02:39:53.057Z">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-2.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-1.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-3.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-0.png">
+<meta property="article:published_time" content="2024-07-12T02:07:00.000Z">
+<meta property="article:modified_time" content="2024-07-14T06:54:44.614Z">
 <meta property="article:author" content="元芳">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://iyuanfang.github.io/%5Cimages%5Cpasted-2.png">
+<meta name="twitter:image" content="http://iyuanfang.github.io/images/pasted-2.png">
   
   
   
-  <title>hexo和github做个人博客 - 元芳的文章</title>
+  <title>Hexo 和 Github 做个人博客 - 元芳的文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="hexo和github做个人博客"></span>
+            <span id="subtitle" data-typed-text="Hexo 和 Github 做个人博客"></span>
           
         </div>
 
@@ -221,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14 字
+          511 字
         
       </span>
     
@@ -232,7 +237,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -269,13 +274,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">hexo和github做个人博客</h1>
+            <h1 id="seo-header">Hexo 和 Github 做个人博客</h1>
             
             
               <div class="markdown-body">
                 
-                <p>前面一直用公众号写文章，但发现</p>
-<p><img src="/%5Cimages%5Cpasted-2.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
+                <p>前面一直用公众号写文章，但发现比较散，不利于自己做知识管理。所以想搞个免费博客，私域，技术，经济都可以写。后面再用 gitbook 搞个在线书。</p>
+<p>就选了比较流行的 hexo，然后免费部署到 github pages 上。很快就搭起来了，可以通过 <a href="https://iyuanfang.github.io/">元芳的博客</a>访问。</p>
+<p>这里主要讲原理和相关命令。如 git，node 的安装和使用可以自行搜索。</p>
+<h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>Hexo 原理是通过 node 将 Markdown 文件最后打包生成 html 和 js&#x2F;css 静态文件，然后将这些静态文件放到免费托管就可以网络访问了。</p>
+<p>Hexo 使用见<a href="/2024/07/12/hello-world/" title="Hexo 官方入门文档">Hexo 官方入门文档</a></p>
+<p>安装 Hexo，然后运行，就可以浏览器查看站点了。</p>
+<p><img src="/images/pasted-2.png" srcset="/img/loading.gif" lazyload alt="运行"></p>
+<h2 id="Hexo-admin"><a href="#Hexo-admin" class="headerlink" title="Hexo-admin"></a>Hexo-admin</h2><p>我使用了 Hexo-admin 插件，这样可以可视化创建和修改文章。<br><img src="/images/pasted-1.png" srcset="/img/loading.gif" lazyload alt="编辑"></p>
+<p>Markdown 语法很简单，参考这里 <a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown 语法</a></p>
+<p>这个后台支持直接拷贝图片进来，但生成的 Markdown 文字有些问题，要改成”&#x2F;“才能够正常显示图片。</p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>比较了很多 hexo 主题，最后选择了 fluid 主题，比较好看，又能配置很多东西。</p>
+<p><img src="/images/pasted-3.png" srcset="/img/loading.gif" lazyload alt="效果"></p>
+<h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h1><p>github pages 是 github 提供的免费静态文件托管站点。我开始想用 vercel，但发现生成的网站国内无法访问，所以还是用 pages 了。</p>
+<p>步骤就是先在 github 创建一个名为”iyuanfang.github.io”仓库(这里 iyuanfang 替换成你自己的 github 账号)，然后将 hexo 的文件直接通过”hexo d” 部署到这个仓库，然后 github 会检测到文件变化，自动部署站点。github pages 还支持其它很多 action，但比较复杂，以后再研究，先用最基础的”Deploy from a branch”。<br><img src="/images/pasted-0.png" srcset="/img/loading.gif" lazyload alt="deploy"></p>
+<p>hexo 生成静态文件并部署到 github pages 上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+
+<p>然后等待 github pages 自动构建，就可以看到新发布或修改的文章了</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Hexo 启动，然后在 admin 后台用 Markdown 写文章，同时可以预览效果，最后生成静态文件并一键 deploy 到 github pages。挺简单的，你也试试吧！</p>
 
                 
               </div>
@@ -284,6 +306,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8E%9F%E5%88%9B/" class="category-chain-item">原创</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF/" class="print-no-link">#技术</a>
+      
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+      
+    </div>
   
 </div>
 
@@ -293,7 +345,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>hexo和github做个人博客</div>
+      <div>Hexo 和 Github 做个人博客</div>
       <div>http://iyuanfang.github.io/2024/07/12/hexo和github做个人博客-1/</div>
     </div>
     <div class="license-meta">
@@ -338,15 +390,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2024/07/12/hello-world/" title="Hexo 官方入门文档">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo 官方入门文档</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2024/07/12/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
