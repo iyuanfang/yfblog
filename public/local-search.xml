@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>修改hexo-admin插件的代码来正确显示图片</title>
+    <link href="/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/"/>
+    <url>/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</url>
+    
+    <content type="html"><![CDATA[<p>已经用hexo写了几篇文章了，<a href="https://iyuanfang.github.io/">https://iyuanfang.github.io</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>但用hexo-admin上传图片发现一个小问题，就是当copy图片后，生成的Markdown文字不对，导致图片显示不出来。</p><p>生成的文字如下：</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[upload successful]</span>(\\images\pasted-<span class="hljs-number">19</span>.png\)<br></code></pre></td></tr></table></figure><p>需要手工改成</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[upload successful]</span>(/images/pasted-<span class="hljs-number">19</span>.png)<br></code></pre></td></tr></table></figure><p>这样图片才可以正常展示出来。</p><p>那么每上传一张图片后，都需要手工改这个生成的文字，还是挺烦的。我又是不喜欢做重复劳动的人，就想修改下插件的代码来修正这个问题，一劳永逸！</p><h1 id="说干就干"><a href="#说干就干" class="headerlink" title="说干就干"></a>说干就干</h1><p>插件的代码就在‘node_modules’文件夹里，找到hexo-admin文件夹，可以看到里面就是正常的js代码。<br><img src="/images/pasted-15.png"></p><p>然后搜索’images’ ，会发现在api.js里有这样的代码。</p><p><img src="/images/pasted-16.png"></p><p>就是这里处理上传文件的！</p><p>往下一直找，找到了最后生成Markdown文字的地方。</p><p><img src="/images/pasted-17.png"></p><p>这段代码写文件，并输出。</p><p>‘src’就是输出的文字，它调用了path.join 方法，我懒得进去改，直接注释掉这句，然后用replace方法把反斜杠’ \ ‘替换成’ &#x2F; ‘。</p><p>重启hexo服务，试着上传文件，这下生成的Markdown文字就正确了。</p><p>顺便我把图片的默认文字’upload successful’ 在代码中也改成空，省的每次修改时要删除浪费时间。</p><p>这下省事了，上传图片无需修改文字，直接展示，搞定！</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>很多东西其实没那么复杂，花了点时间改代码（js好久不用了，花了点时间捡起来），但后面就一劳永逸，不用做无用的重复劳动了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>原创</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技术</tag>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Kimi浏览器插件很方便</title>
     <link href="/2024/07/15/Kimi%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%BE%88%E6%96%B9%E4%BE%BF-1/"/>
     <url>/2024/07/15/Kimi%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%BE%88%E6%96%B9%E4%BE%BF-1/</url>
