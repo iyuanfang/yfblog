@@ -16,27 +16,29 @@
   <meta name="author" content="元芳">
   <meta name="keywords" content="">
   
-    <meta name="description" content="已经用hexo写了几篇文章了，https:&#x2F;&#x2F;iyuanfang.github.io 问题但用hexo-admin上传图片发现一个小问题，就是当copy图片后，生成的Markdown文字不对，导致图片显示不出来。 生成的文字如下： 1![upload successful](\\images\pasted-19.png\) 需要手工改成 1![upload successful](&#x2F;images&#x2F;">
+    <meta name="description" content="Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。 技术发展技术最早前端和后端访问数据库的代码写在一起的，比如jsp早期，但这样可维护性太差。后来把业务逻辑从页面脱离，单独写到后端代码中。 再后来做前后端分离，前端页面通过AJAX技术调用后端的rest接口，前后端可以分开部署。 现在又出了云函数，就是后端服务器也不用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改hexo-admin插件的代码来正确显示图片">
-<meta property="og:url" content="http://iyuanfang.github.io/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/index.html">
+<meta property="og:title" content="给Hexo加上访问计数和评论">
+<meta property="og:url" content="http://iyuanfang.github.io/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/index.html">
 <meta property="og:site_name" content="元芳的文章">
-<meta property="og:description" content="已经用hexo写了几篇文章了，https:&#x2F;&#x2F;iyuanfang.github.io 问题但用hexo-admin上传图片发现一个小问题，就是当copy图片后，生成的Markdown文字不对，导致图片显示不出来。 生成的文字如下： 1![upload successful](\\images\pasted-19.png\) 需要手工改成 1![upload successful](&#x2F;images&#x2F;">
+<meta property="og:description" content="Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。 技术发展技术最早前端和后端访问数据库的代码写在一起的，比如jsp早期，但这样可维护性太差。后来把业务逻辑从页面脱离，单独写到后端代码中。 再后来做前后端分离，前端页面通过AJAX技术调用后端的rest接口，前后端可以分开部署。 现在又出了云函数，就是后端服务器也不用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-15.png">
-<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-16.png">
-<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-17.png">
-<meta property="article:published_time" content="2024-07-16T11:21:00.000Z">
-<meta property="article:modified_time" content="2024-07-16T11:56:03.104Z">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-19.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-18.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-20.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-21.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-22.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-23.png">
+<meta property="article:published_time" content="2024-07-18T10:35:00.000Z">
+<meta property="article:modified_time" content="2024-07-18T11:13:06.194Z">
 <meta property="article:author" content="元芳">
-<meta property="article:tag" content="技术">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://iyuanfang.github.io/images/pasted-15.png">
+<meta name="twitter:image" content="http://iyuanfang.github.io/images/pasted-19.png">
   
   
   
-  <title>修改hexo-admin插件的代码来正确显示图片 - 元芳的文章</title>
+  <title>给Hexo加上访问计数和评论 - 元芳的文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -231,7 +233,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="修改hexo-admin插件的代码来正确显示图片"></span>
+            <span id="subtitle" data-typed-text="给Hexo加上访问计数和评论"></span>
           
         </div>
 
@@ -242,8 +244,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-16 19:21" pubdate>
-          2024年7月16日 晚上
+        <time datetime="2024-07-18 18:35" pubdate>
+          2024年7月18日 晚上
         </time>
       </span>
     
@@ -254,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          424 字
+          446 字
         
       </span>
     
@@ -310,31 +312,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">修改hexo-admin插件的代码来正确显示图片</h1>
+            <h1 id="seo-header">给Hexo加上访问计数和评论</h1>
             
             
               <div class="markdown-body">
                 
-                <p>已经用hexo写了几篇文章了，<a href="https://iyuanfang.github.io/">https://iyuanfang.github.io</a></p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>但用hexo-admin上传图片发现一个小问题，就是当copy图片后，生成的Markdown文字不对，导致图片显示不出来。</p>
-<p>生成的文字如下：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[upload successful]</span>(\\images\pasted-<span class="hljs-number">19</span>.png\)<br></code></pre></td></tr></table></figure>
-<p>需要手工改成</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[upload successful]</span>(/images/pasted-<span class="hljs-number">19</span>.png)<br></code></pre></td></tr></table></figure>
-<p>这样图片才可以正常展示出来。</p>
-<p>那么每上传一张图片后，都需要手工改这个生成的文字，还是挺烦的。我又是不喜欢做重复劳动的人，就想修改下插件的代码来修正这个问题，一劳永逸！</p>
-<h1 id="说干就干"><a href="#说干就干" class="headerlink" title="说干就干"></a>说干就干</h1><p>插件的代码就在‘node_modules’文件夹里，找到hexo-admin文件夹，可以看到里面就是正常的js代码。<br><img src="/images/pasted-15.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后搜索’images’ ，会发现在api.js里有这样的代码。</p>
-<p><img src="/images/pasted-16.png" srcset="/img/loading.gif" lazyload></p>
-<p>就是这里处理上传文件的！</p>
-<p>往下一直找，找到了最后生成Markdown文字的地方。</p>
-<p><img src="/images/pasted-17.png" srcset="/img/loading.gif" lazyload></p>
-<p>这段代码写文件，并输出。</p>
-<p>‘src’就是输出的文字，它调用了path.join 方法，我懒得进去改，直接注释掉这句，然后用replace方法把反斜杠’ \ ‘替换成’ &#x2F; ‘。</p>
-<p>重启hexo服务，试着上传文件，这下生成的Markdown文字就正确了。</p>
-<p>顺便我把图片的默认文字’upload successful’ 在代码中也改成空，省的每次修改时要删除浪费时间。</p>
-<p>这下省事了，上传图片无需修改文字，直接展示，搞定！</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>很多东西其实没那么复杂，花了点时间改代码（js好久不用了，花了点时间捡起来），但后面就一劳永逸，不用做无用的重复劳动了。</p>
+                <p>Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。</p>
+<h1 id="技术发展"><a href="#技术发展" class="headerlink" title="技术发展"></a>技术发展</h1><p>技术最早前端和后端访问数据库的代码写在一起的，比如jsp早期，但这样可维护性太差。后来把业务逻辑从页面脱离，单独写到后端代码中。</p>
+<p>再后来做前后端分离，前端页面通过AJAX技术调用后端的rest接口，前后端可以分开部署。</p>
+<p>现在又出了云函数，就是后端服务器也不用管了，就是运行在互联网上的一段代码，你可以前端直接调用。也算是更彻底的前后端分离。</p>
+<h1 id="使用Leancloud"><a href="#使用Leancloud" class="headerlink" title="使用Leancloud"></a>使用Leancloud</h1><p>那么hexo虽然生成的是前端代码，但也可以调用云函数这类。</p>
+<p>所以做计数和评论，也不用像原来那样自己搞一套服务器，然后搞数据库，写代码，部署这一整套。只要调用Leancloud的API就可以了。</p>
+<p>fluid主题可以直接配置使用Leancloud。</p>
+<p><img src="/images/pasted-19.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/pasted-18.png" srcset="/img/loading.gif" lazyload> </p>
+<p>修改config.yml配置文件，打开评论comments为true，配置使用valine，然后填入Leancloud上的appid和appKey,重启hexo，评论就展示出来了。Leancloud注册和获取key，可以搜索，很简单。</p>
+<p>我试着评论一下。</p>
+<p><img src="/images/pasted-20.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后打开Leancloud控制台，可以看到创建了一张Comment表，插入了一行评论记录。展示的评论就是从这里读取。</p>
+<p><img src="/images/pasted-21.png" srcset="/img/loading.gif" lazyload></p>
+<p>计数也同样使用Leancloud，配置统计为true，并将下面的Leancloud配置写入同样的appid和appKey。</p>
+<p><img src="/images/pasted-22.png" srcset="/img/loading.gif" lazyload></p>
+<p>重启后，计数功能也有了。</p>
+<p><img src="/images/pasted-23.png" srcset="/img/loading.gif" lazyload></p>
+<p>Leancloud有开发板，也是免费的，只是每天流量有限制，个人玩玩没问题的。</p>
 
                 
               </div>
@@ -368,8 +369,6 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%80%E6%9C%AF/" class="print-no-link">#技术</a>
-      
         <a href="/tags/hexo/" class="print-no-link">#hexo</a>
       
     </div>
@@ -382,8 +381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>修改hexo-admin插件的代码来正确显示图片</div>
-      <div>http://iyuanfang.github.io/2024/07/16/修改hexo-admin插件的代码来正确显示图片/</div>
+      <div>给Hexo加上访问计数和评论</div>
+      <div>http://iyuanfang.github.io/2024/07/18/给Hexo加上访问计数和评论/</div>
     </div>
     <div class="license-meta">
       
@@ -395,7 +394,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月16日</div>
+          <div>2024年7月18日</div>
         </div>
       
       
@@ -427,18 +426,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/" title="给Hexo加上访问计数和评论">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">给Hexo加上访问计数和评论</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/15/Kimi%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%BE%88%E6%96%B9%E4%BE%BF-1/" title="Kimi浏览器插件很方便">
-                        <span class="hidden-mobile">Kimi浏览器插件很方便</span>
+                      <a href="/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/" title="修改hexo-admin插件的代码来正确显示图片">
+                        <span class="hidden-mobile">修改hexo-admin插件的代码来正确显示图片</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

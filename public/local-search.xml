@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>给Hexo加上访问计数和评论</title>
+    <link href="/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/"/>
+    <url>/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/</url>
+    
+    <content type="html"><![CDATA[<p>Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。</p><h1 id="技术发展"><a href="#技术发展" class="headerlink" title="技术发展"></a>技术发展</h1><p>技术最早前端和后端访问数据库的代码写在一起的，比如jsp早期，但这样可维护性太差。后来把业务逻辑从页面脱离，单独写到后端代码中。</p><p>再后来做前后端分离，前端页面通过AJAX技术调用后端的rest接口，前后端可以分开部署。</p><p>现在又出了云函数，就是后端服务器也不用管了，就是运行在互联网上的一段代码，你可以前端直接调用。也算是更彻底的前后端分离。</p><h1 id="使用Leancloud"><a href="#使用Leancloud" class="headerlink" title="使用Leancloud"></a>使用Leancloud</h1><p>那么hexo虽然生成的是前端代码，但也可以调用云函数这类。</p><p>所以做计数和评论，也不用像原来那样自己搞一套服务器，然后搞数据库，写代码，部署这一整套。只要调用Leancloud的API就可以了。</p><p>fluid主题可以直接配置使用Leancloud。</p><p><img src="/images/pasted-19.png"></p><p><img src="/images/pasted-18.png"> </p><p>修改config.yml配置文件，打开评论comments为true，配置使用valine，然后填入Leancloud上的appid和appKey,重启hexo，评论就展示出来了。Leancloud注册和获取key，可以搜索，很简单。</p><p>我试着评论一下。</p><p><img src="/images/pasted-20.png"></p><p>然后打开Leancloud控制台，可以看到创建了一张Comment表，插入了一行评论记录。展示的评论就是从这里读取。</p><p><img src="/images/pasted-21.png"></p><p>计数也同样使用Leancloud，配置统计为true，并将下面的Leancloud配置写入同样的appid和appKey。</p><p><img src="/images/pasted-22.png"></p><p>重启后，计数功能也有了。</p><p><img src="/images/pasted-23.png"></p><p>Leancloud有开发板，也是免费的，只是每天流量有限制，个人玩玩没问题的。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>原创</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>修改hexo-admin插件的代码来正确显示图片</title>
     <link href="/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/"/>
     <url>/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</url>
