@@ -24,7 +24,7 @@ fluid主题可以直接配置使用Leancloud。
 
 ![](/images/pasted-19.png)
 
-![](/images/pasted-18.png) 
+![](/images/pasted-24.png) 
 
 修改config.yml配置文件，打开评论comments为true，配置使用valine，然后填入Leancloud上的appid和appKey,重启hexo，评论就展示出来了。Leancloud注册和获取key，可以搜索，很简单。
 
@@ -45,4 +45,3 @@ fluid主题可以直接配置使用Leancloud。
 ![](/images/pasted-23.png)
 
 Leancloud有开发板，也是免费的，只是每天流量有限制，个人玩玩没问题的。
-
