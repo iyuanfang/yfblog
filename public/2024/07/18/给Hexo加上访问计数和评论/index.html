@@ -24,13 +24,13 @@
 <meta property="og:description" content="Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。 技术发展技术最早前端和后端访问数据库的代码写在一起的，比如jsp早期，但这样可维护性太差。后来把业务逻辑从页面脱离，单独写到后端代码中。 再后来做前后端分离，前端页面通过AJAX技术调用后端的rest接口，前后端可以分开部署。 现在又出了云函数，就是后端服务器也不用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://iyuanfang.github.io/images/pasted-19.png">
-<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-18.png">
+<meta property="og:image" content="http://iyuanfang.github.io/images/pasted-24.png">
 <meta property="og:image" content="http://iyuanfang.github.io/images/pasted-20.png">
 <meta property="og:image" content="http://iyuanfang.github.io/images/pasted-21.png">
 <meta property="og:image" content="http://iyuanfang.github.io/images/pasted-22.png">
 <meta property="og:image" content="http://iyuanfang.github.io/images/pasted-23.png">
 <meta property="article:published_time" content="2024-07-18T10:35:00.000Z">
-<meta property="article:modified_time" content="2024-07-18T11:13:06.194Z">
+<meta property="article:modified_time" content="2024-07-20T05:53:51.083Z">
 <meta property="article:author" content="元芳">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,6 +204,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/book/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>在线书</span>
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -325,7 +337,7 @@
 <p>所以做计数和评论，也不用像原来那样自己搞一套服务器，然后搞数据库，写代码，部署这一整套。只要调用Leancloud的API就可以了。</p>
 <p>fluid主题可以直接配置使用Leancloud。</p>
 <p><img src="/images/pasted-19.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/images/pasted-18.png" srcset="/img/loading.gif" lazyload> </p>
+<p><img src="/images/pasted-24.png" srcset="/img/loading.gif" lazyload> </p>
 <p>修改config.yml配置文件，打开评论comments为true，配置使用valine，然后填入Leancloud上的appid和appKey,重启hexo，评论就展示出来了。Leancloud注册和获取key，可以搜索，很简单。</p>
 <p>我试着评论一下。</p>
 <p><img src="/images/pasted-20.png" srcset="/img/loading.gif" lazyload></p>
@@ -425,6 +437,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/07/20/%E5%BC%80%E5%A7%8B%E7%94%A8gitbook%E5%86%99%E5%9C%A8%E7%BA%BF%E4%B9%A6/" title="开始用gitbook写在线书">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">开始用gitbook写在线书</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
