@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>http://iyuanfang.github.io/mybook/SUMMARY.html</loc>
-    
-    <lastmod>2024-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://iyuanfang.github.io/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/</loc>
     
     <lastmod>2024-07-20</lastmod>
@@ -103,7 +94,7 @@
 
   <url>
     <loc>http://iyuanfang.github.io/</loc>
-    <lastmod>2024-07-21</lastmod>
+    <lastmod>2024-07-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -111,28 +102,28 @@
   
   <url>
     <loc>http://iyuanfang.github.io/tags/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2024-07-21</lastmod>
+    <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://iyuanfang.github.io/tags/hexo/</loc>
-    <lastmod>2024-07-21</lastmod>
+    <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://iyuanfang.github.io/tags/%E6%97%B6%E4%BA%8B/</loc>
-    <lastmod>2024-07-21</lastmod>
+    <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://iyuanfang.github.io/tags/AI/</loc>
-    <lastmod>2024-07-21</lastmod>
+    <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -141,7 +132,7 @@
   
   <url>
     <loc>http://iyuanfang.github.io/categories/%E5%8E%9F%E5%88%9B/</loc>
-    <lastmod>2024-07-21</lastmod>
+    <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
