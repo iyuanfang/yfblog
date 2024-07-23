@@ -1888,19 +1888,19 @@
                 global: {},
                 add: function (e, t, n, r, o) {
                     var i, a, s, u, l, c, f, p, h, d, g, m = Fe.get(e);
-                    // if (false)
-                    //     for (n.handler && (i = n, n = i.handler, o = i.selector), o && de.find.matchesSelector(Ye, o), n.guid || (n.guid = de.guid++), (u = m.events) || (u = m.events = {}), (a = m.handle) || (a = m.handle = function (t) {
-                    //             return "undefined" != typeof de && de.event.triggered !== t.type ? de.event.dispatch.apply(e, arguments) : void 0
-                    //         }), t = (t || "").match(qe) || [""], l = t.length; l--;) s = Ze.exec(t[l]) || [], h = g = s[1], d = (s[2] || "").split(".").sort(), h && (f = de.event.special[h] || {}, h = (o ? f.delegateType : f.bindType) || h, f = de.event.special[h] || {}, c = de.extend({
-                    //         type: h,
-                    //         origType: g,
-                    //         data: r,
-                    //         handler: n,
-                    //         guid: n.guid,
-                    //         selector: o,
-                    //         needsContext: o && de.expr.match.needsContext.test(o),
-                    //         namespace: d.join(".")
-                    //     }, i), (p = u[h]) || (p = u[h] = [], p.delegateCount = 0, f.setup && f.setup.call(e, r, d, a) !== !1 || e.addEventListener && e.addEventListener(h, a)), f.add && (f.add.call(e, c), c.handler.guid || (c.handler.guid = n.guid)), o ? p.splice(p.delegateCount++, 0, c) : p.push(c), de.event.global[h] = !0)
+                    if (m)
+                        for (n.handler && (i = n, n = i.handler, o = i.selector), o && de.find.matchesSelector(Ye, o), n.guid || (n.guid = de.guid++), (u = m.events) || (u = m.events = {}), (a = m.handle) || (a = m.handle = function (t) {
+                                return "undefined" != typeof de && de.event.triggered !== t.type ? de.event.dispatch.apply(e, arguments) : void 0
+                            }), t = (t || "").match(qe) || [""], l = t.length; l--;) s = Ze.exec(t[l]) || [], h = g = s[1], d = (s[2] || "").split(".").sort(), h && (f = de.event.special[h] || {}, h = (o ? f.delegateType : f.bindType) || h, f = de.event.special[h] || {}, c = de.extend({
+                            type: h,
+                            origType: g,
+                            data: r,
+                            handler: n,
+                            guid: n.guid,
+                            selector: o,
+                            needsContext: o && de.expr.match.needsContext.test(o),
+                            namespace: d.join(".")
+                        }, i), (p = u[h]) || (p = u[h] = [], p.delegateCount = 0, f.setup && f.setup.call(e, r, d, a) !== !1 || e.addEventListener && e.addEventListener(h, a)), f.add && (f.add.call(e, c), c.handler.guid || (c.handler.guid = n.guid)), o ? p.splice(p.delegateCount++, 0, c) : p.push(c), de.event.global[h] = !0)
                 },
                 remove: function (e, t, n, r, o) {
                     var i, a, s, u, l, c, f, p, h, d, g, m = Fe.hasData(e) && Fe.get(e);
