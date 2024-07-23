@@ -425,6 +425,8 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
+    <a href="/atom.xml" target="_blank" rel="欢迎订阅"><span>RSS</span></a>&nbsp;&nbsp;
+    <a href="/sitemap.xml" target="_blank" rel="站点地图"><span>站点地图</span></a>&nbsp;&nbsp;
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
@@ -1202,6 +1204,18 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: fluid
+
+#RSS订阅
+plugin:
+- hexo-generator-feed
+- hexo-generator-sitemap
+#Feed Atom
+feed:
+type: atom
+path: atom.xml
+limit: 20
+
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

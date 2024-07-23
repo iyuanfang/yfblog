@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>元芳的文章</title>
+  
+  
+  <link href="http://iyuanfang.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://iyuanfang.github.io/"/>
+  <updated>2024-07-20T15:55:23.919Z</updated>
+  <id>http://iyuanfang.github.io/</id>
+  
+  <author>
+    <name>元芳</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开始用gitbook写在线书</title>
+    <link href="http://iyuanfang.github.io/2024/07/20/%E5%BC%80%E5%A7%8B%E7%94%A8gitbook%E5%86%99%E5%9C%A8%E7%BA%BF%E4%B9%A6/"/>
+    <id>http://iyuanfang.github.io/2024/07/20/%E5%BC%80%E5%A7%8B%E7%94%A8gitbook%E5%86%99%E5%9C%A8%E7%BA%BF%E4%B9%A6/</id>
+    <published>2024-07-20T05:55:45.000Z</published>
+    <updated>2024-07-20T15:55:23.919Z</updated>
+    
+    <content type="html"><![CDATA[<p>用hexo搭了博客，再用gitbook搭一个在线书。这样就可以方便的分享知识了。</p><h1 id="gitbook"><a href="#gitbook" class="headerlink" title="gitbook"></a>gitbook</h1><p>gitbook很早就有了，但我一直没用，它开始是开源软件，可以将Markdown文件生成为网站、pdf、epub等格式。但后面转向商业，搞了 <a href="https://www.gitbook.com/">专业网站</a>。</p><h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><p>程序员出身，我还是希望自己搭建而不是在它的网站上写和发布。但搭建过程中碰到蛮多问题，说明真的好久没维护了，好多问题都没有修复。</p><p>先用npm安装</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">npm <span class="hljs-selector-tag">i</span> gitbook-cli -<span class="hljs-selector-tag">g</span><br></code></pre></td></tr></table></figure><p>然后创建一个目录，我是yfbook，用</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">gitbook <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure><p>然后报错，网上搜索照做解决。</p><p><img src="/images/pasted-25.png"></p><p>说是因为官方js代码有问题，要找到这个js文件，然后把中间3行注释掉。</p><p><img src="/images/pasted-26.png"></p><p>问题解决，目录下生成了README.md和SUMMARY.md。</p><p>然后编辑这两个Markdown文件（我用vs code）。</p><p><img src="/images/pasted-27.png"></p><p>这里就是书的目录，我先验证gitbook，后续完善目录。</p><p>里面每一个.md文件就是一个章节，在里面填充内容。</p><p>然后运行’gitbook serve’看效果。</p><p><img src="/images/pasted-28.png"></p><p><img src="/images/pasted-29.png"></p><p>挺方便的，按照md的格式和内容就生成了网页。</p><p>然后试下生成pdf文件。用命令：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">gitbook pdf</span><br></code></pre></td></tr></table></figure><p>结果又报错，”Error during ebook generation: ‘ebook-convert’ 加一堆乱码”。</p><p>再搜索是没有安装calibre。原来gitbook要调用calibre才能生成pdf和epub。</p><p>安装calibre后，再执行命令，成功生成book.pdf。</p><p>至此gitbook本地跑通，写Markdown文件，可以生成网页和pdf电子书。</p><h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>最后就要把生成的网页和hexo一起部署在github上。</p><p>我的方法是使用</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">gitbook build</span><br></code></pre></td></tr></table></figure><p>生成静态页面，然后把这些内容copy到hexo生成的public目录下，然后用</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo d</span><br></code></pre></td></tr></table></figure><p>部署到github pages上。</p><p>目录结构如下：</p><p><img src="/images/pasted-30.png"><br>等github启动部署后，访问 <a href="https://iyuanfang.github.io/book/">book</a></p><p>就可以看到在线电子书了。</p><p><img src="/images/pasted-31.png"></p><p>后面先把章节目录搞出来，也欢迎大家一起讨论。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;用hexo搭了博客，再用gitbook搭一个在线书。这样就可以方便的分享知识了。&lt;/p&gt;
+&lt;h1 id=&quot;gitbook&quot;&gt;&lt;a href=&quot;#gitbook&quot; class=&quot;headerlink&quot; title=&quot;gitbook&quot;&gt;&lt;/a&gt;gitbook&lt;/h1&gt;&lt;p&gt;gi</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>给Hexo加上访问计数和评论</title>
+    <link href="http://iyuanfang.github.io/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/"/>
+    <id>http://iyuanfang.github.io/2024/07/18/%E7%BB%99Hexo%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%84%E8%AE%BA/</id>
+    <published>2024-07-18T10:35:00.000Z</published>
+    <updated>2024-07-20T05:53:51.083Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。</p><h1 id="技术发展"><a href="#技术发展" class="headerlink" title="技术发展"></a>技术发展</h1><p>技术最早前端和后端访问数据库的代码写在一起的，比如jsp早期，但这样可维护性太差。后来把业务逻辑从页面脱离，单独写到后端代码中。</p><p>再后来做前后端分离，前端页面通过AJAX技术调用后端的rest接口，前后端可以分开部署。</p><p>现在又出了云函数，就是后端服务器也不用管了，就是运行在互联网上的一段代码，你可以前端直接调用。也算是更彻底的前后端分离。</p><h1 id="使用Leancloud"><a href="#使用Leancloud" class="headerlink" title="使用Leancloud"></a>使用Leancloud</h1><p>那么hexo虽然生成的是前端代码，但也可以调用云函数这类。</p><p>所以做计数和评论，也不用像原来那样自己搞一套服务器，然后搞数据库，写代码，部署这一整套。只要调用Leancloud的API就可以了。</p><p>fluid主题可以直接配置使用Leancloud。</p><p><img src="/images/pasted-19.png"></p><p><img src="/images/pasted-24.png"> </p><p>修改config.yml配置文件，打开评论comments为true，配置使用valine，然后填入Leancloud上的appid和appKey,重启hexo，评论就展示出来了。Leancloud注册和获取key，可以搜索，很简单。</p><p>我试着评论一下。</p><p><img src="/images/pasted-20.png"></p><p>然后打开Leancloud控制台，可以看到创建了一张Comment表，插入了一行评论记录。展示的评论就是从这里读取。</p><p><img src="/images/pasted-21.png"></p><p>计数也同样使用Leancloud，配置统计为true，并将下面的Leancloud配置写入同样的appid和appKey。</p><p><img src="/images/pasted-22.png"></p><p>重启后，计数功能也有了。</p><p><img src="/images/pasted-23.png"></p><p>Leancloud有开发板，也是免费的，只是每天流量有限制，个人玩玩没问题的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Hexo原理是用Markdown文件生成html静态文件，不用依赖于数据库。但的确还是有些需要用数据库做存储的，比如访问计数和评论。&lt;/p&gt;
+&lt;h1 id=&quot;技术发展&quot;&gt;&lt;a href=&quot;#技术发展&quot; class=&quot;headerlink&quot; title=&quot;技术发展&quot;&gt;&lt;/a&gt;</summary>
+      
+    
+    
+    
+    <category term="原创" scheme="http://iyuanfang.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    
+    <category term="hexo" scheme="http://iyuanfang.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修改hexo-admin插件的代码来正确显示图片</title>
+    <link href="http://iyuanfang.github.io/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/"/>
+    <id>http://iyuanfang.github.io/2024/07/16/%E4%BF%AE%E6%94%B9hexo-admin%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</id>
+    <published>2024-07-16T11:21:00.000Z</published>
+    <updated>2024-07-20T05:53:51.082Z</updated>
+    
+    <content type="html"><![CDATA[<p>已经用hexo写了几篇文章了，<a href="https://iyuanfang.github.io/">https://iyuanfang.github.io</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>但用hexo-admin上传图片发现一个小问题，就是当copy图片后，生成的Markdown文字不对，导致图片显示不出来。</p><p>生成的文字如下：</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[upload successful]</span>(\\images\pasted-<span class="hljs-number">19</span>.png\)<br></code></pre></td></tr></table></figure><p>需要手工改成</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[upload successful]</span>(/images/pasted-<span class="hljs-number">19</span>.png)<br></code></pre></td></tr></table></figure><p>这样图片才可以正常展示出来。</p><p>那么每上传一张图片后，都需要手工改这个生成的文字，还是挺烦的。我又是不喜欢做重复劳动的人，就想修改下插件的代码来修正这个问题，一劳永逸！</p><h1 id="说干就干"><a href="#说干就干" class="headerlink" title="说干就干"></a>说干就干</h1><p>插件的代码就在‘node_modules’文件夹里，找到hexo-admin文件夹，可以看到里面就是正常的js代码。<br><img src="/images/pasted-15.png"></p><p>然后搜索’images’ ，会发现在api.js里有这样的代码。</p><p><img src="/images/pasted-16.png"></p><p>就是这里处理上传文件的！</p><p>往下一直找，找到了最后生成Markdown文字的地方。</p><p><img src="/images/pasted-17.png"></p><p>这段代码写文件，并输出。</p><p>‘src’就是输出的文字，它调用了path.join 方法，我懒得进去改，直接注释掉这句，然后用replace方法把反斜杠’ \ ‘替换成’ &#x2F; ‘。</p><p>重启hexo服务，试着上传文件，这下生成的Markdown文字就正确了。</p><p>顺便我把图片的默认文字’upload successful’ 在代码中也改成空，省的每次修改时要删除浪费时间。</p><p>这下省事了，上传图片无需修改文字，直接展示，搞定！</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>很多东西其实没那么复杂，花了点时间改代码（js好久不用了，花了点时间捡起来），但后面就一劳永逸，不用做无用的重复劳动了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;已经用hexo写了几篇文章了，&lt;a href=&quot;https://iyuanfang.github.io/&quot;&gt;https://iyuanfang.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="原创" scheme="http://iyuanfang.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    
+    <category term="技术" scheme="http://iyuanfang.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="hexo" scheme="http://iyuanfang.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kimi浏览器插件很方便</title>
+    <link href="http://iyuanfang.github.io/2024/07/15/Kimi%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%BE%88%E6%96%B9%E4%BE%BF-1/"/>
+    <id>http://iyuanfang.github.io/2024/07/15/Kimi%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%BE%88%E6%96%B9%E4%BE%BF-1/</id>
+    <published>2024-07-15T06:56:00.000Z</published>
+    <updated>2024-07-20T05:53:51.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近用Kimi比较多，它能够从互联网搜索文章，实时性较强，回答也比较贴切。</p><p>一直有个需求，就是把正在看的网页做个摘要，方便我快速阅读。</p><p>正好Kimi新出了浏览器插件，来体验下，顺便给大家看看。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>打开 <a href="https://kimi.moonshot.cn/">kimi官网</a>,左下角点击下载Kimi浏览器插件</p><p><img src="/images/pasted-6.png" alt="插件"></p><p>点击安装<br><img src="/images/pasted-7.png" alt="安装"></p><p>会跳到浏览器插件安装，我是直接用的Edge，因为和chrome都用的Chromium引擎，体验差不多了。</p><p>点击安装后，就可以在浏览器上使用Kimi插件了。<br>这里把Kimi扩展固定在浏览器上<br><img src="/images/pasted-9.png" alt="固定"></p><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>这里可以配置Kimi，推荐窗口展示使用侧边栏模式，这样不影响同时看文章。然后设置启动快捷键，我设置了Ctrl+k 来启动kimi</p><p><img src="/images/pasted-14.png" alt="配置"></p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>使用很简单，打开任何一个网页，按快捷键（我设置的Ctrl+k）唤醒kimi。就会在右边出现侧边栏，点击“总结全文”就会开始总结，在侧边栏不影响左边阅读，右边在一行行生成。</p><p><img src="/images/pasted-12.png" alt="使用"></p><p>也可以继续问kimi，我问”suno如何”，kimi也会回复。</p><p><img src="/images/pasted-13.png" alt="追问"></p><p>这下是不是方便很多，不用每次打开kimi网址，而是快捷键直接唤醒。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近用Kimi比较多，它能够从互联网搜索文章，实时性较强，回答也比较贴切。&lt;/p&gt;
+&lt;p&gt;一直有个需求，就是把正在看的网页做个摘要，方便我快速阅读。&lt;/p&gt;
+&lt;p&gt;正好Kimi新出了浏览器插件，来体验下，顺便给大家看看。&lt;/p&gt;
+&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#</summary>
+      
+    
+    
+    
+    <category term="原创" scheme="http://iyuanfang.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    
+    <category term="AI" scheme="http://iyuanfang.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我对特朗普遇袭的看法</title>
+    <link href="http://iyuanfang.github.io/2024/07/14/%E6%88%91%E5%AF%B9%E7%89%B9%E6%9C%97%E6%99%AE%E9%81%87%E8%A2%AD%E7%9A%84%E7%9C%8B%E6%B3%95/"/>
+    <id>http://iyuanfang.github.io/2024/07/14/%E6%88%91%E5%AF%B9%E7%89%B9%E6%9C%97%E6%99%AE%E9%81%87%E8%A2%AD%E7%9A%84%E7%9C%8B%E6%B3%95/</id>
+    <published>2024-07-14T06:57:00.000Z</published>
+    <updated>2024-07-20T05:53:27.274Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天一大早美国发生了件大事，特朗普集会上被枪击。</p><h1 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h1><p>照片如下，特朗普耳朵受伤，脸上都是血。<br><img src="/images/pasted-4.png" alt="upload successful"></p><p>据报道，袭击者是在200米左右用的狙击枪，开了8枪，现场还有1名围观群众死亡，多名受伤。</p><h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>网上有评论说，这又和台湾陈水扁枪击案一样，是共和党自导自演。</p><p>但我认为就是真实的枪击，而且是冲着特朗普的命去的。</p><p>自导自演会往脑袋上打？就差1厘米，特朗普就要去会见安倍晋三了。谁能控制那么精准，万一特朗普一偏头怎么办？</p><p>自导自演会开那么多枪？而且最终被击毙。不赶紧打一枪就跑？</p><p>特朗普大难不死，这些胜算肯定大增，人都同情弱者，痛恨阴谋诡计。</p><p>而且特朗普真的有一套。受伤也没有表现的那么害怕，反而高举双手，显得很强硬，这正是政客需要展示的，代表自己才能带领老美。</p><p>事后特朗普也在媒体发言，先感谢特勤局，再慰问遇难者，最后才说自己，果然也很老辣。<br><img src="/images/pasted-5.png" alt="upload successful"></p><p>这次事件，说明美国两党争斗更加激烈了，都开始搞暗杀这套。最后肯定会高层博弈，否则你暗杀我，我暗杀你，竞选游戏还怎么玩下去。</p><h1 id="吃瓜"><a href="#吃瓜" class="headerlink" title="吃瓜"></a>吃瓜</h1><p>当然无论谁当选，对中国都一样，都会很强硬，这是国家利益使然。我们也就吃个瓜，该发展发展，该应对应对。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天一大早美国发生了件大事，特朗普集会上被枪击。&lt;/p&gt;
+&lt;h1 id=&quot;情况&quot;&gt;&lt;a href=&quot;#情况&quot; class=&quot;headerlink&quot; title=&quot;情况&quot;&gt;&lt;/a&gt;情况&lt;/h1&gt;&lt;p&gt;照片如下，特朗普耳朵受伤，脸上都是血。&lt;br&gt;&lt;img src=&quot;/imag</summary>
+      
+    
+    
+    
+    <category term="原创" scheme="http://iyuanfang.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    
+    <category term="时事" scheme="http://iyuanfang.github.io/tags/%E6%97%B6%E4%BA%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 官方入门文档</title>
+    <link href="http://iyuanfang.github.io/2024/07/12/hello-world/"/>
+    <id>http://iyuanfang.github.io/2024/07/12/hello-world/</id>
+    <published>2024-07-12T04:26:52.000Z</published>
+    <updated>2024-07-12T16:49:47.908Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+    <category term="技术" scheme="http://iyuanfang.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 和 Github 做个人博客</title>
+    <link href="http://iyuanfang.github.io/2024/07/12/hexo%E5%92%8Cgithub%E5%81%9A%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-1/"/>
+    <id>http://iyuanfang.github.io/2024/07/12/hexo%E5%92%8Cgithub%E5%81%9A%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-1/</id>
+    <published>2024-07-12T02:07:00.000Z</published>
+    <updated>2024-07-14T06:54:44.614Z</updated>
+    
+    <content type="html"><![CDATA[<p>前面一直用公众号写文章，但发现比较散，不利于自己做知识管理。所以想搞个免费博客，私域，技术，经济都可以写。后面再用 gitbook 搞个在线书。</p><p>就选了比较流行的 hexo，然后免费部署到 github pages 上。很快就搭起来了，可以通过 <a href="https://iyuanfang.github.io/">元芳的博客</a>访问。</p><p>这里主要讲原理和相关命令。如 git，node 的安装和使用可以自行搜索。</p><h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>Hexo 原理是通过 node 将 Markdown 文件最后打包生成 html 和 js&#x2F;css 静态文件，然后将这些静态文件放到免费托管就可以网络访问了。</p><p>Hexo 使用见<a href="/2024/07/12/hello-world/" title="Hexo 官方入门文档">Hexo 官方入门文档</a></p><p>安装 Hexo，然后运行，就可以浏览器查看站点了。</p><p><img src="/images/pasted-2.png" alt="运行"></p><h2 id="Hexo-admin"><a href="#Hexo-admin" class="headerlink" title="Hexo-admin"></a>Hexo-admin</h2><p>我使用了 Hexo-admin 插件，这样可以可视化创建和修改文章。<br><img src="/images/pasted-1.png" alt="编辑"></p><p>Markdown 语法很简单，参考这里 <a href="https://markdown.com.cn/">Markdown 语法</a></p><p>这个后台支持直接拷贝图片进来，但生成的 Markdown 文字有些问题，要改成”&#x2F;“才能够正常显示图片。</p><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>比较了很多 hexo 主题，最后选择了 fluid 主题，比较好看，又能配置很多东西。</p><p><img src="/images/pasted-3.png" alt="效果"></p><h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h1><p>github pages 是 github 提供的免费静态文件托管站点。我开始想用 vercel，但发现生成的网站国内无法访问，所以还是用 pages 了。</p><p>步骤就是先在 github 创建一个名为”iyuanfang.github.io”仓库(这里 iyuanfang 替换成你自己的 github 账号)，然后将 hexo 的文件直接通过”hexo d” 部署到这个仓库，然后 github 会检测到文件变化，自动部署站点。github pages 还支持其它很多 action，但比较复杂，以后再研究，先用最基础的”Deploy from a branch”。<br><img src="/images/pasted-0.png" alt="deploy"></p><p>hexo 生成静态文件并部署到 github pages 上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure><p>然后等待 github pages 自动构建，就可以看到新发布或修改的文章了</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Hexo 启动，然后在 admin 后台用 Markdown 写文章，同时可以预览效果，最后生成静态文件并一键 deploy 到 github pages。挺简单的，你也试试吧！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前面一直用公众号写文章，但发现比较散，不利于自己做知识管理。所以想搞个免费博客，私域，技术，经济都可以写。后面再用 gitbook 搞个在线书。&lt;/p&gt;
+&lt;p&gt;就选了比较流行的 hexo，然后免费部署到 github pages 上。很快就搭起来了，可以通过 &lt;a href</summary>
+      
+    
+    
+    
+    <category term="原创" scheme="http://iyuanfang.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    
+    <category term="技术" scheme="http://iyuanfang.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="hexo" scheme="http://iyuanfang.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
