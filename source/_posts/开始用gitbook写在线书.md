@@ -84,5 +84,32 @@ hexo d
 
 ![](/images/pasted-31.png)
 
-后面先把章节目录搞出来，也欢迎大家一起讨论。
+# 整合到hexo
+如果每次都要手工copy生成的文件到hexo，那也比较麻烦。
+
+而且我想把yfblog和yfbook放到一个github仓库中，方便写文章和书。
+
+有什么好的办法吗？
+
+我就想把yfbook放到yfblog文件夹下，然后生成到pulbic目录下，这样就整合到一起了。目录结构如下：
+
+
+![](/images/pasted-32.png)
+
+然后在yfblog目录命令中使用gitbook，通过参数指定运行和生成的output文件夹。
+
+```
+C:\Users\yuanfang\yfblog>gitbook serve ./yfbook ./public/book
+
+C:\Users\yuanfang\yfblog>gitbook build ./yfbook ./public/book
+```
+这两个命令参数都一样，第一个是gitbook 的Markdown文件所在，第二个是运行和生成的文件夹。
+
+最后 hexo g -d 部署到github pages上。搞定！
+
+
+
+
+
+
 
